@@ -1,0 +1,100 @@
+\chapter{Modeling and Analysis of Cascading Failures}
+
+\label{ch:cf}
+\section{Models}
+
+
+Cascading failures (CF) are a ubiquitous phenomenon across most networks.  In social networks, biological networks, or neural networks, cascading failures spread linearly, or through adjacent nodes.  However, in power systems or other flow networks, cascading failures spread non-locally, in that when one edge or node is removed, the next removed component is not necessarily connected to the most recently failed component.  This is a consequence of the power flow equations discussed in Chapter \ref{ch:background}.
+
+Cascading failure models can be generally classified based on which dynamics are modeled and also by how those dynamics are modeled.  In general, almost all CF models choose line overloads as the representative failure.  Overload failures occur when a component in the system has some capacity for transmitting flow, and the dynamics of the system cause the flow on the component to exceed its capacity.  However, other types of failures, more specific to power systems, are also explored in the CF literature.  For example, hidden failures occur when a protective component of the system operates at an incorrect time or fails to operate when it is necessary \cite{hidden_failures}.  For the models described in the rest of this section, most of the failures that are represented are overload failures, but some do consider generator or frequency failures and will be discussed when appropriate.  
+
+
+We will cover three basic categories of CF models relevant to this thesis work: pure topological models, models that only consider power flow, and models that consider transient and power flow dynamics.  Topological models take the simplest approach, as they do not model any power system dynamics, while power flow and transient dynamics based models contain more dynamical details.
+
+\subsection{Topological Models}
+
+We use the term Topological Models here to describe cascading failure models that do not inherently describe power flow dynamics.  Ever since Watts and Strogatz \cite{watts} asserted that power systems are ``small-world" networks based on their characteristic path length and clustering coefficient, the network science community has given considerable attention to power systems and cascading failures because ``small-world" networks tend to have larger propagations of failure due to their topological properties\footnote{There has been some disagreement on topological properties of power systems.  Power systems have been shown to have exponential degree distributions in some cases, and power law degree distribution in others~\cite{albert}\cite{chassin}.  It is unsurprising that different power systems made with different engineering choices would have different network characteristics, but even studies of the same power system have yielded different network properties~\cite{top_ps_hines}\cite{watts}.}. 
+
+Ever since Watts produced a canonical model for cascades on networks, the contagion model, first described in~\cite{watts_contagion}, spreading phenomena has become a ubiquitous research area in the network science community \cite{market_social_net}\cite{newman_virus}\cite{spread_financ}.  The contagion model is a linear spreading model, where nodes can only become infected if neighboring nodes are infected.  In power systems, neighboring nodes of failed components are usually not the next components to fail, and a large amount of research shows that the spread of failures in a power system is inherently non-local \cite{hines_ig}\cite{Witthaut2015}.  Part of the problem with the contagion model is it assumes information travels on all paths equally. In power systems, two paths of equal length that connect a pair of nodes are not necessarily electrically equivalent; power may not flow equally between them.  Additionally, due to non-linear interactions in power systems, there are no modeling assumptions or changes in the contagion model that could simulate cascading failures that occur in power systems~\cite{model_assump}.  
+
+Despite these draw backs, purely topological models have found similar insights into CF as the power flow and transient dynamic models.  In \cite{effic_harm}, the authors found that a small number of nodes in the Western Interconnection can cause a total collapse of the system.  The authors concluded that upgrades to these components could significantly reduce the risk of CF for the system.  Motter et. al \cite{Motter2002} describe a model in which components have a load defined by the number of shortest paths that go through the component.  The capacity for each component is based on the initial topology of the network, plus an additional fraction.  When nodes are randomly removed, this causes the load to redistribute (as the shortest paths between two nodes might have changed), and can cause further failures.  Out of all the topological models used, this one is most closely related to the power flow based CF described in the next section.  However, because topological models do not use any power flow dynamics (and assume all paths are equal), these models are less useful for identifying specific upgrades to the system, and are more well-suited for understanding the fundamental drivers of CF \cite{topology_good}.  Therefore, most CF models used today fall into the next two categories described below.
+
+\subsection{Power Flow Models}
+
+A significant number of CF models fall under the power flow based model category.  This is because they are the simplest to model, while maintaining some sense of reality.  The most prominent of these is the OPA model \cite{opa0}.  OPA is run over many ``days", where each day the following occurs: (I) the initial power flow of the system is solved, using the DC approximation, (II) an initial set of lines are removed at the beginning of the day based on a uniform probability, (III) power flow is re-solved with these lines removed, if any line is overloaded after resolving, it is removed with some probability, and the cascade continues in this way until there are no longer overloaded lines.  At the end of each ``day" all lines that failed due to overload are upgraded, in that their capacity is increased, and the load that needs to be served is increased by some fraction.  The important concept that followed from this model is that power systems are consistently operated at a critical level.  When the system limits are pushed too far, failures occur, resulting in system upgrades.  However, these upgrades allow for more power to be served for the increasing demand, which inevitably will result in more failures, causing the system to again be in a critical state\footnote{Critical here does not necessarily mean imminent failure, rather it means the system is near the edge of a transition, and a small perturbation, such as a line failure, could push it towards an undesirable state.}.  OPA was the first model to introduce the idea that by running a power system in the most economical fashion (using all components at their maximum capacity, when necessary), also pushes it towards more critical regions.
+
+
+A similar model to OPA is introduced by Hines et. al, called DCSIMSEP \cite{dual_graph}.  In this model, rather than probabilistic failure, specific $n-k$ contingencies are studied.  This model uses a standard re-dispatching technique for generators when the system becomes islanded, and additionally models protection equipment in a more detailed fashion.  DCSIMSEP identifies a minimal set of lines that result in a CF using a random chemistry algorithm.  A set of line failures is considered minimal if all lines in the set must fail for a blackout to occur.  Power flow based models are the most prominent models for CF analysis because it more accurately describes the dynamics of the system, and are less computationally expensive than the transient and power flow models.  
+\subsection{Transient and Power Flow Based Models}
+
+Fewer models of CF exist that include transient dynamics.  This is due to the higher complexity of solving not only the power flow equations, but also the differential equations associated with generators (Equation \ref{eqtn:swing}).  However, these models are perhaps the most important when we start to consider the effects of adding large amounts of renewable generation  to power systems, as the interactions among components will inevitably change.  Power flow based models do not describe these effects and thus are inadequate when we consider this question.
+
+
+COSMIC \cite{cosmic} takes as input a sequence of discrete events, such as line outages, to apply to the system.  The model first initializes and solves the differential and algebraic equations for the system.    Then the exogenous events are processed.  If the system separates into two islands then these two systems are resolved for and integrated separately.  If the system stays connected then the admittance matrix is updated and the ACPFE are recomputed.  The simulation is then integrated until the end simulation time is reached or a discrete threshold, such as percent load shed or power lost, is crossed.  During this integration, lines that exceed limit rates are tripped, and generators that exceed stability limits are disconnected.  {\color{red} Summary sentence here!!}
+
+
+{\color{red} Clean up this section!}
+The model we plan on using in this research is a phase transition model that was first presented by \cite{DeMarco2001} and then adapted by \cite{Yang2017}.  This model uses the generator swing equation (\ref{eqtn:sp_gen}) and load equation (\ref{eqtn:load}), along with the DC power flow equations.  However, in order to create a continuous dynamical system, line overloads must be represented by a continuous variable, rather than a discrete one as is used in the COSMIC model.  Let $\eta_{ij}$ represent the line status, where $\eta_{ij}\approx1$ is on, and $\eta_{ij}\approx0$ is off.  Let $c_{ij}$ represent the fractional amount of flow on a line, such that $c_{ij}=1$ means the line has the maximum amount of flow, more specifically $c_{ij} = \frac{b_{ij}(1-\cos \delta_{ij})}{X_{ij}}$ which defines the fraction of the reactance energy stored in the line.  In order to model the automatic removal of a line, the derivative of the line status is defined as $\dot{\eta}_{ij}=f(\eta_{ij}) - c_{ij}$ where $f(\eta_{ij}) = \frac{1}{a}(\frac{1}{\eta_{ij}}-\frac{1}{1-\eta_{ij}})+a\eta_{ij}-b$ is a function that has three equilibriums: a stable equilibrium at $\eta_{ij}\approx 1$, a stable equilibrium at $\eta_{ij} \approx 0$, and an unstable equilibrium at which point $\eta_{ij}$ will evolve to $0$.  In practice, $f(\eta_{ij})$ could be any function with the desired equilibriums, in fact in \cite{DeMarco2001} they use a totally different function, but we will remain consistent with the model presented in \cite{Yang2017} for this work.  Thus, the final equation describing the evolution of the line status is
+\begin{equation}
+\label{eqtn:line_status}
+\dot{\eta}_{ij} = 10(f(\eta_{ij})-	\frac{b_{ij}(1-\cos \delta_{ij})}{X_{ij}})
+\end{equation}
+
+
+Equation \ref{eqtn:sp_gen} remains unchanged, but we modify the load voltage angle equation by incorporating the line status variable
+\begin{equation}
+\label{eqtn:alt_load}
+\dot{\delta}_i = -\frac{1}{D_i}(P_i +\sum\limits_{j=1}^{n_b} b_{ij}\eta_{ij} \sin \delta_{ij})	
+\end{equation}
+
+
+What makes the continuous phase-space transition model appealing over other models   is that these equations can be derived from a Hamiltonian-like system with the energy function 
+\begin{equation}
+\begin{split}
+\Psi(\textbf{x}) = \sum\limits_{g=1}^{n_g}(\frac{1}{2}M_g\omega_g^2+\sum\limits_{j \notin G}^{n_b} b_{ij} (1-\cos\delta_{ij})) \\
+ + \sum\limits_{i \notin G}^{n_b} \sum\limits_{j \notin G}^{n_b} b_{ij}(1-\cos\delta_{ij})\eta_{ij} - \sum\limits_{\forall i,j \in E}^{|E|} X_{ij}F(\eta_{ij})\\
+       +        \sum\limits_{i=2}^{n_g+n_b}P_i\delta_i\\
+ \end{split}
+\end{equation}
+
+where the first line represents the kinetic energy provided by the generators and the reactive energy of the lines connecting the generators to the system, the second term is the reactive energy on all other lines subtracting out the total possible reactive energy, and the last line represents the real power at every node in the system.
+
+%%%%%%%
+%%%%%%%
+\section{Types of Analysis}
+Cascading failure analysis is generally trying to answer three broad questions: (I) how can we build a more resilient system, or what about how it is built effects the cascading failure dynamics?  (II) Due to the large number of potential failures that could occur in the system, which ones should we care about?  (III) How do system components, and their interactions, effect the size of a cascade?  We will briefly cover the results surrounding these questions and identify key areas where more research needs to be done.
+
+\subsection{Topology and CF Dynamics}
+
+However, the structural properties alone do not govern all the dynamics of the system.  The way power flows in the system is extremely dependent on how each of the components are made.  
+
+  With this in mind,~\cite{electrical_betweenness} defines a power grid's adjacency matrix in terms of its electrical properties, which is encompassed in the impedance matrix or the inverse admittance matrix (Section \ref{ps:power}).  With this, the network has a scale-free structure, that is there are a few ``electrically central" nodes that most of the power flows through.  Furthering this research, \cite{topology_good} uses various network measures to successively weaken test systems.  The measures included betweenness centrality, maximum flow loss, minimum flow loss, and degree centrality.  Each component is removed based on its centrality measure; this allows a comparison of these ``attack strategies" to determine which measure indicates vulnerability.  However, vulnerability can be defined in multiple ways.  In~\cite{topology_good} the authors explore blackout size, connectivity loss, and increase in path length as three potential vulnerability measures.  Depending on which vulnerability metric is used, the best attack strategy differs.  This implies that topological methods alone cannot provide enough detail on cascading failures.
+  
+Topological information has been shown to be crucial when we consider islanding, restoration, or system upgrades~\cite{restoration}\cite{islanding}.  For example, in~\cite{top_Pepyne}  a DC model with a ``small-world" network generator is used to understand the importance of grid topology to islanding.  Using a similar cascade model as OPA, the authors found that increasing ``short-cut" links in the grid increases how much load can be served, but also makes the grid more susceptible to islanding. This helps explain why transmission systems are built with redundant lines.  Furthermore, stability studies using Kuramoto oscillator models have shown that nodes in ``dead-ends" of the network topology are more likely to become unstable during perturbations~\cite{kurths}. These models use reasonably accurate formulations of cascade propagation that are not contained in the topological models previously discussed.  
+
+
+
+\subsection{$N-k$ Contingency Analysis}
+
+Current standards require utilities to ensure $N-1$ security of the power system, so a failure of any single component should not result in other failures~\cite{nerc_stand}.  While this suppresses the likelihood of cascades from any single outage, it does not change the probability of large blackouts~\cite{OPA_req}.  Many cascades start with some $n-k$ contingency where $k$ components fail simultaneously.  Some of these combinations do not lead to cascading failures.  It is common for system operators to maintain a list of extremely risky $n-k$ contingencies.  But determining these sets is non-trivial.
+
+Exploring all possible $n-k$ contingencies and determining which of them are most dangerous is computationally expensive because there are $n!/(n-k)!$ possible combinations to explore.  Significant research has been done to determine risky sets of outages.  One solution identifies the minimal set of $n-k$ contingencies that result in system failure using a ``random chemistry" algorithm~\cite{random_chemistry} .  The minimal set is defined as a set of outages that cause a large blackout, but without any one of those outages, the blackout would not have occurred.  The cascading failure simulation this algorithm uses first initializes the power flow using the DCPFE, applies the $n-k$ contingency to the system, checks for a user-defined system failure, updates the protection system, and then advances times.  Similar approaches to the $n-k$ problem also only continue simulating cascades that pose some pre-defined risk factor \cite{chen}\cite{donde}\cite{kirschen}.  Alternatively, \cite{Soltan2017} quantifies $n-k$ contingencies based on how much power flow is redistributed after applying those contingencies to a base case DC power flow solution.  However, there is no agreement in the community over which metric best identifies risky contingencies.
+
+\subsection{Critical Components}
+Regardless of whether all $n-k$ contingencies are simulated, most researchers use the result of these simulations to determine the risk each component poses to large cascading failures.  In general, the more often a component is involved in a large failure, the more likely upgrading that component decreases the overall system risk to large failures \cite{random_chemistry2}, but the effect of load increase over time means the system is always in a critical state \cite{Newman2008}.  Most studies have found that the failure of highly connected lines in the system generally leads to larger cascades \cite{Kornbluth2018}\cite{YangCoSep}\cite{YangMotterSVS}.  
+
+something something
+
+
+Finally, a large body of research in cascading failure analysis surrounds identifying which $k$-line failures are most crucial to model in detail due to their severity or their probability.  There are several approaches to this problem, all of which reduce the combinatorial search space to some extent.  (then talk about all the ways people have approached this problem because it is numerous).  Even WECC maintains a list a of important paths to consider when looking at any transmission model.
+
+Part of the reason the order and timing of line failures matters is because of the differences in how power flow will redistribute.  This becomes more important as models start to consider more detailed information such as generator dynamics.  In [yang and motter paper], it was shown that a few $n-2$ contingencies cause significant differences in outcomes for the Iceland test case system.  
+
+
+
+
+
+
+
+
+

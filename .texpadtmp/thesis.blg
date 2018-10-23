@@ -1,0 +1,81 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: /Users/sammolnar/Documents/Proposal/title-ph-d/.texpadtmp/thesis.aux
+The style file: plain.bst
+Database file #1: ../bibliography/bibliography.bib
+Warning--entry type for "greenhouse_gas" isn't style-file defined
+--line 9 of file ../bibliography/bibliography.bib
+Repeated entry---line 146 of file ../bibliography/bibliography.bib
+ : @article{Yang2017
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 453 of file ../bibliography/bibliography.bib
+ : @misc{nerc_image
+ :                 ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 486 of file ../bibliography/bibliography.bib
+ : 
+ : doi={10.1109/HICSS.2002.993975},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+"{" immediately follows a field name---line 605 of file ../bibliography/bibliography.bib
+ : @article
+ :         {net_effic_1,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1142 of file ../bibliography/bibliography.bib
+ : @techreport{ferc_acopf
+ :                       ,
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in Dorfler
+Warning--empty author in Dorfler
+Warning--empty year in Dorfler
+Warning--empty institution in eia_eo
+Warning--can't use both author and editor fields in Bienstock2015
+Warning--empty journal in doe_industry_primer
+Warning--empty journal in kirschen
+Warning--empty institution in nerc_stand
+Warning--empty year in nerc_stand
+Warning--empty journal in fidvr_nerc
+Warning--empty institution in nerc_inv
+You've used 61 entries,
+            2118 wiz_defined-function locations,
+            839 strings with 13693 characters,
+and the built_in function-call counts, 20437 in all, are:
+= -- 1962
+> -- 994
+< -- 10
++ -- 401
+- -- 332
+* -- 1460
+:= -- 3428
+add.period$ -- 186
+call.type$ -- 61
+change.case$ -- 348
+chr.to.int$ -- 0
+cite$ -- 72
+duplicate$ -- 749
+empty$ -- 1599
+format.name$ -- 332
+if$ -- 4258
+int.to.chr$ -- 0
+int.to.str$ -- 61
+missing$ -- 59
+newline$ -- 309
+num.names$ -- 120
+pop$ -- 355
+preamble$ -- 1
+purify$ -- 288
+quote$ -- 0
+skip$ -- 519
+stack$ -- 0
+substring$ -- 1236
+swap$ -- 135
+text.length$ -- 10
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 234
+warning$ -- 11
+while$ -- 182
+width$ -- 63
+write$ -- 662
+(There were 5 error messages)
