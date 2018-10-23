@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  22 OCT 2018 12:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  23 OCT 2018 17:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -604,76 +604,27 @@ Overfull \vbox (5.67899pt too high) detected at line 24
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./abstract/abstract.tex
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ¶ in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no î in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ¶ in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
- [1
+) [1
 
-]
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
- [2]) [3] (/Users/sammolnar/Documents/Proposal/title-ph-d/.texpadtmp/thesis.toc [4
+] (/Users/sammolnar/Documents/Proposal/title-ph-d/.texpadtmp/thesis.toc [2
 
 
 ])
 \tf@toc=\write3
 \openout3 = `thesis.toc'.
 
- [5] (/Users/sammolnar/Documents/Proposal/title-ph-d/.texpadtmp/thesis.lof)
+ [3] (/Users/sammolnar/Documents/Proposal/title-ph-d/.texpadtmp/thesis.lof)
 \tf@lof=\write4
 \openout4 = `thesis.lof'.
 
- [6
+ [4
 
 
 
@@ -682,7 +633,7 @@ Chapter 1.
 [1
 
 
-] <figures/greenhouse_gas_energy_type.png, id=33, 1517.67pt x 492.84125pt>
+] <figures/greenhouse_gas_energy_type.png, id=26, 1517.67pt x 492.84125pt>
 File: figures/greenhouse_gas_energy_type.png Graphic file (type png)
  <use figures/greenhouse_gas_energy_type.png>
 Package pdftex.def Info: figures/greenhouse_gas_energy_type.png used on input line 11.
@@ -703,12 +654,12 @@ Overfull \hbox (30.70078pt too wide) in paragraph at lines 130--130
 []\OT1/cmr/bx/n/17.28 Understanding Power Sys-tem Per-for-mance and Health 
  []
 
-<figures/nerc_interconnections.png, id=67, 502.9992pt x 385.9218pt>
+<figures/nerc_interconnections.png, id=61, 502.9992pt x 385.9218pt>
 File: figures/nerc_interconnections.png Graphic file (type png)
  <use figures/nerc_interconnections.png>
 Package pdftex.def Info: figures/nerc_interconnections.png used on input line 137.
 (pdftex.def)             Requested size: 328.82707pt x 252.30069pt.
- [9] [10 <./figures/nerc_interconnections.png>] [11] [12] <figures/frequency.png, id=82, 1108.14pt x 352.81813pt>
+ [9] [10 <./figures/nerc_interconnections.png>] [11] [12] <figures/frequency.png, id=75, 1108.14pt x 352.81813pt>
 File: figures/frequency.png Graphic file (type png)
  <use figures/frequency.png>
 Package pdftex.def Info: figures/frequency.png used on input line 161.
@@ -746,10 +697,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  41i,22n,39p,10389b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on /Users/sammolnar/Documents/Proposal/title-ph-d/.texpadtmp/thesis.pdf (43 pages, 1167983 bytes).
+Output written on /Users/sammolnar/Documents/Proposal/title-ph-d/.texpadtmp/thesis.pdf (41 pages, 1164676 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
+ 205 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
